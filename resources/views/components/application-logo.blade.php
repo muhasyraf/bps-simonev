@@ -1,0 +1,1 @@
+<img src="{{asset('img/logoBPS.svg')}}" alt="" width="90px">
