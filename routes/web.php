@@ -28,8 +28,11 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard.index');
     })->name('dashboard')->middleware('auth:admin');
+    Route::get('/dashboard/capaian-kinerja', function () {
+        return view('dashboard.capaian-kinerja');
+    })->name('dashboard.capaian-kinerja');
 });
 
 Route::middleware([
@@ -38,6 +41,9 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard.index');
     })->name('dashboard');
+    Route::get('/dashboard/capaian-kinerja', function () {
+        return view('dashboard.capaian-kinerja');
+    })->name('dashboard.capaian-kinerja');
 });
