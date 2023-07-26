@@ -1,1 +1,1 @@
-<img src="{{asset('img/logoBPS.svg')}}" alt="" width="100px">
+<img src="{{asset('img/SIMonev.png')}}" alt="" width="100px">
