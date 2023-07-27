@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h4 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard >> Capaian Kinerja') }}
+            {{ __('Dashboard >> PK') }}
     </x-slot>
 
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <h1 class="text-black items-center justify-center text-4xl font-extrabold m-5">
-                    grafik absensi pemasukan dashboard capaian kinerja dan realisasi anggaran instansi
+                    Grafik absensi pemasukan dokumen PK
                 </h1>
                 <div class="p-2 flex  flex-col md:flex-row">
                     <div class="flex flex-col p-5">
