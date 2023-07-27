@@ -12,9 +12,37 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    
+
+                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-dropdown align="none">
+                            <x-slot name="trigger">
+
+                                <button type="button">
+                                    <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                </svg>
+                                </button>
+
+                                        </x-slot>
+                                        <x-slot name="content">
+                                            <!-- Account Management -->
+                                            <x-dropdown-link href="#">
+                                                {{ __('PK') }}
+                                            </x-dropdown-link>
+                                            <x-dropdown-link href="#">
+                                                {{ __('Upload RFA') }}
+                                            </x-dropdown-link>
+                                            <x-dropdown-link href="#">
+                                                {{ __('Capaian Kinerja') }}
+                                            </x-dropdown-link>
+                                        </x-slot>
+                                    </x-dropdown>
+                    
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-dropdown align="none">
@@ -36,10 +64,10 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <x-dropdown-link href="#">
-                                {{ __('Entry 1') }}
+                                {{ __('PK') }}
                             </x-dropdown-link>
                             <x-dropdown-link href="#">
-                                {{ __('Entry 2') }}
+                                {{ __('Upload RFA') }}
                             </x-dropdown-link>
                         </x-slot>
                     </x-dropdown>
@@ -178,6 +206,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            
+
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
