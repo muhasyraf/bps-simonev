@@ -42,6 +42,12 @@ Route::middleware([
     Route::get('/dashboard/capaian-kinerja', function () {
         return view('dashboard.capaian-kinerja');
     })->name('dashboard.capaian-kinerja');
+    Route::get('/entry/PK', function () {
+        return view('entry.PK');
+    })->name('entry.PK');
+    Route::get('/entry/upload-FRA', function () {
+        return view('entry.upload-FRA');
+    })->name('entry.upload-FRA');
 });
 
 
@@ -65,4 +71,10 @@ Route::middleware([
     Route::get('/dashboard/capaian-kinerja', function () {
         return view('dashboard.capaian-kinerja');
     })->name('dashboard.capaian-kinerja');
+    Route::get('/entry/PK', function () {
+        return view('entry.PK');
+    })->name('entry.PK');
+    Route::get('/entry/upload-FRA', function () {
+        return view('entry.upload-FRA');
+    })->name('entry.upload-FRA');
 });

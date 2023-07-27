@@ -65,10 +65,10 @@
                         </x-slot>
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <x-dropdown-link href="#">
+                            <x-dropdown-link href="{{ route('entry.PK' ) }}" :active="request()->routeIs('entry.PK')">
                                 {{ __('PK') }}
                             </x-dropdown-link>
-                            <x-dropdown-link href="#">
+                            <x-dropdown-link href="{{ route('entry.upload-FRA' ) }}" :active="request()->routeIs('entry.upload-FRA')">
                                 {{ __('Upload FRA') }}
                             </x-dropdown-link>
                         </x-slot>
@@ -235,10 +235,10 @@
                     </x-responsive-nav-link>
                 </x-slot>
                 <x-slot name="content">
-                    <x-dropdown-link href="#">
+                    <x-dropdown-link href="{{ route('entry.PK' ) }}" :active="request()->routeIs('entry.PK')">
                         {{ __('PK') }}
                     </x-dropdown-link>
-                    <x-dropdown-link href="#">
+                    <x-dropdown-link href="{{ route('entry.upload-FRA' ) }}" :active="request()->routeIs('entry.upload-FRA')">
                         {{ __('Upload FRA') }}
                     </x-dropdown-link>
                 </x-slot>
