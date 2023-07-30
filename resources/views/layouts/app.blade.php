@@ -13,7 +13,6 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
-    <script src="https://cdn.canvasjs.com/canvasjs.min.js" defer></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
@@ -41,8 +40,11 @@
         </main>
     </div>
     @stack('modals')
-
     @livewireScripts
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <x-livewire-alert::scripts />
+
 </body>
 <script>
     window.onload = function () {
