@@ -25,7 +25,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-cover bg-center">
+<body class="bg-center bg-cover">
     <a href="#" class="flex text-xl text-gray-900 dark:text-black py-8 px-6">
         <img class="w-10 h-8 mr-2" src="{{ URL('img/logo BPS.png') }}" alt="logo">
         Badan Pusat Statistik
