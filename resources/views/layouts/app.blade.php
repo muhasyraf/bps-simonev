@@ -46,6 +46,15 @@
     <x-livewire-alert::scripts />
 
 </body>
-
+<script>
+    function showChangeFile() {
+        var x = document.getElementById("changeFile");
+            if (x.style.display === "none") {
+                x.style.display = "grid";
+        }  else {
+                x.style.display = "none";
+  }
+}
+</script>
 
 </html>

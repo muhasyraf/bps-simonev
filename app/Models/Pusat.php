@@ -13,4 +13,8 @@ class Pusat extends Model
     function capaianKinerja() {
         return $this->hasMany(CapaianKinerja::class, "id");
     }
+
+    function perjanjianKinerja() {
+        return $this->hasMany(CapaianKinerja::class, "id");
+    }
 }
