@@ -8,7 +8,7 @@
         <form method="POST" action="{{ isset($guard) ? url($guard. '/login') : route('login') }}">
             @csrf
 
-            <div class="py-2">
+            <div class="py-12 lg:py-2 ">
                 <x-slot name="logo">
                     <x-authentication-card-logo />
                 </x-slot>

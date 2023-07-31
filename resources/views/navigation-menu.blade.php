@@ -15,9 +15,9 @@
                     <x-dropdown align="none">
                         <x-slot name="trigger">
                             <button type="button"
-                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-black bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-black bg-white hover:text-gray-700  transition ease-in-out duration-150">
 
-                                <x-nav-link href="{{ route('dashboard') }}" >
+                                <x-nav-link  >
                                     {{ __('Dashboard') }}
                                 </x-nav-link>
 
