@@ -46,7 +46,6 @@
     <x-livewire-alert::scripts />
 
 </body>
-<<<<<<< HEAD
 <script>
     function showChangeFile() {
         var x = document.getElementById("changeFile");
@@ -56,13 +55,6 @@
                 x.style.display = "none";
   }
 }
-
-    window.onload = function () {
-            
-            var chartType = document.getElementById("chart").value;
-            console.log(chartType);
-=======
->>>>>>> 8ca33844bfad53df792603dad32626e54676402d
-
+</script>
 
 </html>
