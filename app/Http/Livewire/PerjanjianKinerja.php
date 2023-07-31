@@ -2,28 +2,28 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\CapaianKinerja as ModelsCapaianKinerja;
+use App\Models\PerjanjianKinerja as ModelsPerjanjianKinerja;
 use App\Models\Pusat;
+use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 
-class CapaianKinerja extends Component
+class PerjanjianKinerja extends Component
 {
     use WithPagination;
     use WithFileUploads;
     use LivewireAlert;
 
-    public $capkin;
+    public $pk;
     public $pusat;
     public $tanggal;
     public $tahun;
-    public $triwulan;
-    public $file;
+    public $review;
+    public $link;
     public $oldFile;
     public $q;
     public $sortBy = 'id';
@@ -42,20 +42,20 @@ class CapaianKinerja extends Component
 
     public function render()
     {
-        $capkins = ModelsCapaianKinerja::with('pusat')->when($this->q, function($query){
+        $perjanjianKinerjas = ModelsPerjanjianKinerja::with('pusat')->when($this->q, function($query){
             return $query->where(function($query){
                 $query->where('tahun', 'like', '%'.$this->q.'%')
                         ->orWhereHas('pusat', function($query){
                             return $query->where('name', 'like', '%'.$this->q.'%');
                         });
             });
-        })->orderBy($this->sortBy == 'name' ? Pusat::select('name')->whereColumn('pusats.id', 'capaian_kinerjas.pusat_id') : $this->sortBy, $this->sortAsc ? 'ASC' : 'DESC');
+        })->orderBy($this->sortBy == 'name' ? Pusat::select('name')->whereColumn('pusats.id', 'perjanjian_kinerjas.pusat_id') : $this->sortBy, $this->sortAsc ? 'ASC' : 'DESC');
 
         $pusats = DB::table('pusats')->paginate(30);
-        $query = $capkins->toSql();
-        $capkins = $capkins->paginate(10);
-        return view('livewire.capaian-kinerja', [
-            'capkins' => $capkins,
+        $query = $perjanjianKinerjas->toSql();
+        $perjanjianKinerjas = $perjanjianKinerjas->paginate(10);
+        return view('livewire.perjanjian-kinerja', [
+            'perjanjianKinerjas' => $perjanjianKinerjas,
             'pusats' => $pusats,
             'query' => $query
         ]);
@@ -66,20 +66,20 @@ class CapaianKinerja extends Component
             'pusat' => 'required',
             'tanggal' => 'required|date',
             'tahun' => 'required|integer',
-            'triwulan' => 'required|min:1|max:4|integer',
-            'file' => 'required|file|mimes:xlsx,xls',
+            'review' => 'required|integer',
+            'link' => 'required|file|mimes:pdf,doc,docx',
         ]);
 
-        $fileName = time() . '_' . idate('d', strtotime($this->tanggal)) . idate('m', strtotime($this->tanggal)) . idate('Y', strtotime($this->tanggal)) . '_' . $this->pusat . "." . $this->file->getClientOriginalExtension();
+        $fileName = 'PK' . time() . '_' . idate('d', strtotime($this->tanggal)) . idate('m', strtotime($this->tanggal)) . idate('Y', strtotime($this->tanggal)) . '_' . $this->pusat . $this->review . "." . $this->link->getClientOriginalExtension();
 
-        Storage::putFileAs('public/filefra', $this->file, $fileName);
+        Storage::putFileAs('public/filepk/', $this->link, $fileName);
 
-        ModelsCapaianKinerja::create([
+        ModelsPerjanjianKinerja::create([
             'pusat_id' => $this->pusat,
             'tanggal' => $this->tanggal,
             'tahun' => $this->tahun,
-            'triwulan' => $this->triwulan,
-            'file' => $fileName,
+            'review' => $this->review,
+            'link' => $fileName,
         ]);
 
         $this->resetExcept(['q', 'sortBy', 'sortAsc']);
@@ -92,10 +92,6 @@ class CapaianKinerja extends Component
            ]);
     }
 
-    public function download($file){
-        return response()->download(storage_path('app/public/filefra/'.$file));
-     }
-
     public function confirmItemAdd() {
         $this->resetErrorBag();
         $this->resetValidation();
@@ -103,13 +99,17 @@ class CapaianKinerja extends Component
         $this->confirmingItemAdd = true;
     }
 
-    public function confirmItemEdit(ModelsCapaianKinerja $capkin) {
-        $this->capkin = $capkin;
-        $this->pusat = $this->capkin->pusat_id;
-        $this->tanggal = $this->capkin->tanggal;
-        $this->tahun = $this->capkin->tahun;
-        $this->triwulan = $this->capkin->triwulan;
-        $this->oldFile = $this->capkin->file;
+    public function download($file){
+        return response()->download(storage_path('app/public/filepk/'.$file));
+     }
+
+    public function confirmItemEdit(ModelsPerjanjianKinerja $pk) {
+        $this->pk = $pk;
+        $this->pusat = $this->pk->pusat_id;
+        $this->tanggal = $this->pk->tanggal;
+        $this->tahun = $this->pk->tahun;
+        $this->review = $this->pk->review;
+        $this->oldFile = $this->pk->link;
         $this->editMode = true;
         $this->confirmingItemAdd = true;
 
@@ -123,9 +123,9 @@ class CapaianKinerja extends Component
     }
 
     public function deleteItem($id) {
-        $this->capkin = ModelsCapaianKinerja::find($id);
-        $this->capkin->delete();
-        Storage::delete('public/filefra/'.$this->capkin->file);
+        $this->pk = ModelsPerjanjianKinerja::find($id);
+        $this->pk->delete();
+        Storage::delete('public/filepk/'.$this->pk->link);
         $this->confirmingItemDeletion = false;
         
         $this->alert('warning', 'Data berhasil dihapus!', [
@@ -137,44 +137,44 @@ class CapaianKinerja extends Component
 
     public function saveItemEdit() {
 
-        $newFile = $this->capkin->file;
+        $newFile = $this->pk->link;
 
-        if ($this->file) {
+        if ($this->link) {
 
             $this->validate([
                 'pusat' => 'required',
                 'tanggal' => 'required|date',
                 'tahun' => 'required|integer',
-                'triwulan' => 'required|min:1|max:4|integer',
-                'file' => 'file|mimes:xlsx,xls'
+                'review' => 'required|integer',
+                'link' => 'file|mimes:pdf,doc,docx'
             ]);
 
-            $newFile = time() . '_' . idate('d', strtotime($this->tanggal)) . idate('m', strtotime($this->tanggal)) . idate('Y', strtotime($this->tanggal)) . '_' . $this->pusat . "." . $this->file->getClientOriginalExtension();
+            $fileName = 'PK' . time() . '_' . idate('d', strtotime($this->tanggal)) . idate('m', strtotime($this->tanggal)) . idate('Y', strtotime($this->tanggal)) . '_' . $this->pusat . $this->review . "." . $this->link->getClientOriginalExtension();
 
-            Storage::delete('public/filefra/'.$this->capkin->file);
+            Storage::putFileAs('public/filepk/', $this->file, $fileName);
+            Storage::delete('public/pk/'.$this->pk->file);
 
-            Storage::putFileAs('public/filefra', $this->file, $newFile);
 
-            $this->capkin->update([
+            $this->pk->update([
                 'pusat_id' => $this->pusat,
                 'tanggal' => $this->tanggal,
                 'tahun' => $this->tahun,
-                'triwulan' => $this->triwulan,
-                'file' => $newFile,
+                'review' => $this->review,
+                'link' => $newFile,
             ]);
-        } elseif (!$this->file) {
+        } elseif (!$this->link) {
             $this->validate([
                 'pusat' => 'required',
                 'tanggal' => 'required|date',
                 'tahun' => 'required|integer',
-                'triwulan' => 'required|min:1|max:4|integer',
+                'review' => 'required|min:1|max:4|integer',
             ]);
 
-            $this->capkin->update([
+            $this->pk->update([
                 'pusat_id' => $this->pusat,
                 'tanggal' => $this->tanggal,
                 'tahun' => $this->tahun,
-                'triwulan' => $this->triwulan,
+                'review' => $this->review,
             ]);
         }
         $this->resetErrorBag();
@@ -187,15 +187,16 @@ class CapaianKinerja extends Component
             'toast' => true,
            ]);
     }
-
-    public function updatingQ() {
-        $this->resetPage();
-    }
-
+    
     public function sortBy($field) {
         if ($field == $this->sortBy) {
             $this->sortAsc = !$this->sortAsc;
         }
         $this->sortBy = $field;
     }
+    
+    public function updatingQ() {
+        $this->resetPage();
+    }
+    
 }
