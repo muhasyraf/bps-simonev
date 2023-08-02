@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -49,10 +49,10 @@
 <script>
     function showChangeFile() {
         var x = document.getElementById("changeFile");
-            if (x.style.display === "none") {
-                x.style.display = "grid";
-        }  else {
+            if (x.style.display === "grid") {
                 x.style.display = "none";
+        }  else {
+                x.style.display = "grid";
   }
 }
 </script>

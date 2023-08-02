@@ -17,7 +17,7 @@
                             <button type="button"
                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-black bg-white hover:text-gray-700  transition ease-in-out duration-150">
 
-                                <x-nav-link  >
+                                <x-nav-link>
                                     {{ __('Dashboard') }}
                                 </x-nav-link>
 
@@ -32,19 +32,22 @@
                         </x-slot>
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <x-dropdown-link href="{{ route('dashboard.PK' ) }}" :active="request()->routeIs('dashboard.PK')">
+                            <x-dropdown-link href="{{ route('dashboard.PK' ) }}"
+                                :active="request()->routeIs('dashboard.PK')">
                                 {{ __('PK') }}
                             </x-dropdown-link>
-                            <x-dropdown-link href="{{ route('dashboard.upload-FRA' ) }}" :active="request()->routeIs('dashboard.upload-FRA')">
+                            <x-dropdown-link href="{{ route('dashboard.upload-FRA' ) }}"
+                                :active="request()->routeIs('dashboard.upload-FRA')">
                                 {{ __('Upload FRA') }}
                             </x-dropdown-link>
-                            <x-dropdown-link href="{{ route('dashboard.capaian-kinerja' ) }}" :active="request()->routeIs('dashboard.capaian-kinerja')">
+                            <x-dropdown-link href="{{ route('dashboard.capaian-kinerja' ) }}"
+                                :active="request()->routeIs('dashboard.capaian-kinerja')">
                                 {{ __('Capaian Kinerja') }}
                             </x-dropdown-link>
                         </x-slot>
                     </x-dropdown>
 
-                    
+
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-dropdown align="none">
@@ -68,7 +71,8 @@
                             <x-dropdown-link href="{{ route('entry.PK' ) }}" :active="request()->routeIs('entry.PK')">
                                 {{ __('PK') }}
                             </x-dropdown-link>
-                            <x-dropdown-link href="{{ route('entry.upload-FRA' ) }}" :active="request()->routeIs('entry.upload-FRA')">
+                            <x-dropdown-link href="{{ route('entry.upload-FRA' ) }}"
+                                :active="request()->routeIs('entry.upload-FRA')">
                                 {{ __('Upload FRA') }}
                             </x-dropdown-link>
                         </x-slot>
@@ -210,7 +214,7 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-dropdown-responsive align="none">
                 <x-slot name="trigger">
-                    <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-responsive-nav-link :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-responsive-nav-link>
                 </x-slot>
@@ -218,19 +222,21 @@
                     <x-dropdown-link href="{{ route('dashboard.PK' ) }}" :active="request()->routeIs('dashboard.PK')">
                         {{ __('PK') }}
                     </x-dropdown-link>
-                    <x-dropdown-link href="{{ route('dashboard.upload-FRA' ) }}" :active="request()->routeIs('dashboard.upload-FRA')">
+                    <x-dropdown-link href="{{ route('dashboard.upload-FRA' ) }}"
+                        :active="request()->routeIs('dashboard.upload-FRA')">
                         {{ __('Upload FRA') }}
                     </x-dropdown-link>
-                    <x-dropdown-link href="{{ route('dashboard.capaian-kinerja' ) }}" :active="request()->routeIs('dashboard.capaian-kinerja')">
+                    <x-dropdown-link href="{{ route('dashboard.capaian-kinerja' ) }}"
+                        :active="request()->routeIs('dashboard.capaian-kinerja')">
                         {{ __('Capaian Kinerja') }}
                     </x-dropdown-link>
                 </x-slot>
             </x-dropdown-responsive>
 
-            
+
             <x-dropdown-responsive align="none">
                 <x-slot name="trigger">
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :active="request()->routeIs('entry.PK')">
                         {{ __('Entry') }}
                     </x-responsive-nav-link>
                 </x-slot>
@@ -238,7 +244,8 @@
                     <x-dropdown-link href="{{ route('entry.PK' ) }}" :active="request()->routeIs('entry.PK')">
                         {{ __('PK') }}
                     </x-dropdown-link>
-                    <x-dropdown-link href="{{ route('entry.upload-FRA' ) }}" :active="request()->routeIs('entry.upload-FRA')">
+                    <x-dropdown-link href="{{ route('entry.upload-FRA' ) }}"
+                        :active="request()->routeIs('entry.upload-FRA')">
                         {{ __('Upload FRA') }}
                     </x-dropdown-link>
                 </x-slot>
