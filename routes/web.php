@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/policy', function () {
+    return view('policy');
+});
+Route::get('/contacts', function () {
+    return view('contacts');
+});
+Route::get('/about', function () {
+    return view('about');
+});
 
 Route::middleware(['admin:admin'])->group(function () {
     Route::get('admin/login', 'AdminController@loginForm');

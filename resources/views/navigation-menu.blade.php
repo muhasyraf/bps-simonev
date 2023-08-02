@@ -210,7 +210,7 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-dropdown-responsive align="none">
                 <x-slot name="trigger">
-                    <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-responsive-nav-link >
                         {{ __('Dashboard') }}
                     </x-responsive-nav-link>
                 </x-slot>

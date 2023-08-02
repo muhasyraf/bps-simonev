@@ -176,7 +176,7 @@
                     <x-input-error for="triwulan" class="flex justify-end" />
                     @if (isset($this->editMode))
                     <div class="grid grid-flow-col grid-cols-3 mt-2">
-                        <span class="text-sm font-medium text-gray-900 dark:text-white">Current File</span>
+                        <span class="text-sm font-medium  text-gray-900 dark:text-white">Current File</span>
                         <div class="col-span-2 flex items-center justify-end">
                             <span class="text-xs">{{$this->oldFile}}</span>
                             <a href="{{Storage::url('filefra/'.$this->oldFile)}}">

@@ -22,6 +22,7 @@
                         <option value="area">area</option>
                         
                         <option value="scatter">scatter</option>
+                        <option value="doughnut">doughnut</option>
                         </select>
                     </div>
                 

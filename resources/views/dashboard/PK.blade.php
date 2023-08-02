@@ -26,6 +26,7 @@
                         <option value="pyramid">pyramid</option>
                         <option value="funnel">funnel</option>
                         <option value="scatter">scatter</option>
+                        <option value="doughnut">doughnut</option>
                         </select>
                     </div>
                 
