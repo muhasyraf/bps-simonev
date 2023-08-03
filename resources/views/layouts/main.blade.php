@@ -34,7 +34,7 @@
             
            
                 
-            <a href="javascript:void(0);" class="block md:hidden ml-96 -mt-14 text-lg" onclick="myFunction()">
+            <a  class="block md:hidden ml-72 sm:ml-96   -mt-14 text-lg" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
               </a>
                 <div class="relative justify-center hidden md:flex flex-col  md:flex-row font-bold " id="nav">

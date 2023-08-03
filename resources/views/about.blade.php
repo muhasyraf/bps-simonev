@@ -37,38 +37,25 @@
                     <div class="w-full xl:w-1/2">
                         <h2 class="text-black font-bold text-3xl items-center justify-center px-10 pt-10 pb-8">
                             Visualisasi data menggunakan grafik memungkinkan pengguna untuk dapat melihat akumulasi dan hasil analisis data secara real-time.
-    
                         </h2>
                         @if (Route::has('login'))
-
                 @auth
-                
                 <a href="{{ url('/dashboard') }}">
                     <x-button>
-
                         <button class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent mx-10 w-36 h-12 rounded-md" >Dashboard</button>
                     </x-button>
                 </a>
-
-
                 @else
                 <a href="{{ route('login') }}" class="px-10">
                     <x-button>
-
                         <button class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent mx-10 w-36 h-12 rounded-md" >Log in</button>
                     </x-button>
-
-
                     </a>
-
             @endauth
-
             @endif
-                
-    
+
                     </div>
-    
-    
+
                 </div>
     
             

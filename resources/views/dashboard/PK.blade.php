@@ -9,7 +9,7 @@
 
     <div class="pt-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden  shadow-xl sm:rounded-lg">
                 <h1 class="text-black items-center justify-center text-4xl font-extrabold m-5">
                     Grafik absensi pemasukan dokumen PK
                 </h1>
@@ -27,6 +27,7 @@
                         <option value="funnel">funnel</option>
                         <option value="scatter">scatter</option>
                         <option value="doughnut">doughnut</option>
+                        <option value="spline">spline</option>
                         </select>
                     </div>
                 
@@ -45,7 +46,7 @@
                 
                 </div>
                 
-                <div class="w-10/12  flex flex-col ">
+                <div class="w-11/12  flex flex-col ">
                 
                     <div id="chartContainer" style="height: 450px; " class="pl-10 py-2 inline-block align-top"></div>
                 </div>
@@ -64,53 +65,43 @@
         <p class="font-bold text-gray-700 dark:text-black">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
     </div>
 
-    <script>
-        
+    <script type="text/javascript">
         window.onload = function () {
-            
             var chartType = document.getElementById("chart").value;
             console.log(chartType);
 
             var themeType = document.getElementById("theme").value;
-    
-                    var chart = new CanvasJS.Chart("chartContainer", {
-                        animationEnabled: true,
-                        exportEnabled: true,
-                        theme:themeType, 
-                        title:{
-                            text: ""
-                        },
-                        axisY: {
-                        includeZero: true
-                        },
-                        data: [{
-                            type:chartType, 
-                            
-                            indexLabelFontColor: "#5A5757",
-                            indexLabelFontSize: 16,
-                            indexLabelPlacement: "outside",
-                            dataPoints: [
-                                { x: 10, y: 75, },
-                                { x: 20, y: 55 },
-                                { x: 30, y: 50 },
-                                { x: 40, y: 65 },
-                                { x: 50, y: 92, indexLabel: "\u2605 Highest" },
-                                { x: 60, y: 68 },
-                                
-                                { x: 70, y: 38 },
-                                { x: 75, y: 48},
-                                { x: 80, y: 71 },
-                                { x: 90, y: 54 },
-                                { x: 100, y: 60 },
-                                { x: 110, y: 36 },
-                                { x: 120, y: 49 },
-                                { x: 130, y: 21, indexLabel: "\u2691 Lowest" }
-                            ]
-                        }]
-                    });
-                    chart.render();
-                    
-                    }
-
-    </script>
+        
+        
+        var chart = new CanvasJS.Chart("chartContainer", {
+            theme: themeType, // "light2", "dark1", "dark2"
+            animationEnabled: true, // change to true		
+            title:{
+                text: ""
+            },
+            data: [
+            {
+                // Change type to "bar", "area", "spline", "pie",etc.
+                type: chartType,
+                dataPoints: [
+                    { label: "Januari",  y: 10  },
+                    { label: "Februari", y: 15  },
+                    { label: "Maret", y: 25  },
+                    { label: "April",  y: 30  },
+                    { label: "Mei",  y: 28  },
+                    { label: "Juni",  y: 32  },
+                    { label: "Juli",  y: 43  },
+                    { label: "Agustus",  y: 24  },
+                    { label: "September",  y: 30  },
+                    { label: "Oktober",  y: 18  },
+                    { label: "November",  y: 32  },
+                    { label: "Desember",  y: 40  },
+                ]
+            }
+            ]
+        });
+        chart.render();
+        
+        }
+        </script>
 </div>

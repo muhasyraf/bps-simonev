@@ -19,8 +19,8 @@ Route::get('/', function () {
 Route::get('/policy', function () {
     return view('policy');
 });
-Route::get('/contacts', function () {
-    return view('contacts');
+Route::get('/terms', function () {
+    return view('terms');
 });
 Route::get('/about', function () {
     return view('about');

@@ -41,7 +41,7 @@
                 
                 </div>
                 
-                <div class="w-10/12  flex flex-col ">
+                <div class="w-11/12  flex flex-col ">
                 
                     <div id="chartContainer" style="height: 450px; " class="pl-10 py-2 inline-block align-top"></div>
                 </div>
