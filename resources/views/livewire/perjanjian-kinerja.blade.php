@@ -192,11 +192,19 @@
                             </button>
                         </div>
                     </div>
+                    @if (!$this->link)
                     <div class="grid grid-flow-col grid-cols-3 my-2 hidden" id="changeFile">
                         <x-label for="link" value="{{__('New File')}}" class="flex items-center col-span-1" />
                         <x-input id="link" class="border flex items-center col-span-2" type="file" wire:model="link" />
                     </div>
                     <x-input-error for="link" class="flex justify-end" />
+                    @elseif ($this->link)
+                    <div class="grid grid-flow-col grid-cols-3 my-2" id="changeFile">
+                        <x-label for="link" value="{{__('New File')}}" class="flex items-center col-span-1" />
+                        <x-input id="link" class="border flex items-center col-span-2" type="file" wire:model="link" />
+                    </div>
+                    <x-input-error for="link" class="flex justify-end" />
+                    @endif
                     @else
                     <div class="grid grid-flow-col grid-cols-3 my-2">
                         <x-label for="link" value="{{__('File')}}" class="flex items-center col-span-1" />
@@ -204,6 +212,7 @@
                     </div>
                     <x-input-error for="link" class="flex justify-end" />
                     @endif
+                    <div wire:loading wire:target="link" class="flex justify-end text-end">Mengupload...</div>
                 </div>
             </x-slot>
             <x-slot name="footer">

@@ -17,6 +17,7 @@
                         <x-input id="file" class="border flex items-center col-span-2" type="file" wire:model="file" />
                     </div>
                     <x-input-error for="file" class="flex justify-end" />
+                    <div wire:loading wire:target="file" class="flex justify-end text-end">Mengupload...</div>
                 </div>
             </x-slot>
             <x-slot name="footer">

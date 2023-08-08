@@ -211,6 +211,7 @@
                     </div>
                     <x-input-error for="file" class="flex justify-end" />
                     @endif
+                    <div wire:loading wire:target="file" class="flex justify-end text-end">Mengupload...</div>
                 </div>
             </x-slot>
             <x-slot name="footer">

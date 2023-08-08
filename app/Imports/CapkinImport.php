@@ -16,9 +16,16 @@ class CapkinImport implements ToModel, WithHeadingRow, WithCalculatedFormulas
     */
     public function model(array $row)
     {
-        dd($row);
+        // dd($row);
         return new Capkin([
-            
+            'tw1_capkin' => $row['tw1_capkin'],
+            'tw1_ra' => $row['tw1_ra'],
+            'tw2_capkin' => $row['tw2_capkin'],
+            'tw2_ra' => $row['tw2_ra'],
+            'tw3_capkin' => $row['tw3_capkin'],
+            'tw3_ra' => $row['tw3_ra'],
+            'tw4_capkin' => $row['tw4_capkin'],
+            'tw4_ra' => $row['tw4_ra']
         ]);
     }
 }
