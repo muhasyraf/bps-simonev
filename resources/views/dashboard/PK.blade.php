@@ -56,14 +56,28 @@
 </x-app-layout>
 <div class="bg-gray-100 flex flex-col lg:flex-row my-0  ">
 
-    <div href="#" class="block mx-10 cursor-pointer md:mx-32 lg:mx-36 my-5 lg:my-10 max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        <p class="font-bold text-gray-700 dark:text-black">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+    <div href="#" class="block cursor-pointer mx-10 md:mx-32 lg:w-full lg:mx-36 my-5 lg:my-10 max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700">
+        <div class="flex flex-row">
+            <img src="{{ URL('img/wallet.png') }}" alt=""  class="px-6 py-2">
+            <div class="flex flex-col">
+
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">3.425</h5>
+                <p class="font-bold text-gray-700 dark:text-black">Rata-Rata File Per Bulan</p>
+            </div>
+
+            
+        </div>
     </div>
-    <div href="#" class="block mx-10 cursor-pointer max-w-md p-6 md:mx-32 lg:mx-36 my-5 lg:my-10 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        <p class="font-bold text-gray-700 dark:text-black">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+    <div href="#" class="block cursor-pointer mx-10 max-w-full lg:w-full p-6 md:mx-32 lg:mx-36 my-5 lg:my-10 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700">
+        <div class="flex flex-row">
+            <img src="{{ URL('img/wallet.png') }}" alt=""  class="px-6 py-2">
+            <div class="flex flex-col">
+
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">38.406</h5>
+        <p class="font-bold text-gray-700 dark:text-black">Total File</p>
+            </div>
     </div>
+
 
     <script type="text/javascript">
         window.onload = function () {
