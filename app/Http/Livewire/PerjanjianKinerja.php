@@ -151,8 +151,8 @@ class PerjanjianKinerja extends Component
 
             $fileName = 'PK' . time() . '_' . idate('d', strtotime($this->tanggal)) . idate('m', strtotime($this->tanggal)) . idate('Y', strtotime($this->tanggal)) . '_' . $this->pusat . $this->review . "." . $this->link->getClientOriginalExtension();
 
-            Storage::putFileAs('public/filepk/', $this->file, $fileName);
-            Storage::delete('public/pk/'.$this->pk->file);
+            Storage::putFileAs('public/filepk/', $this->link, $fileName);
+            Storage::delete('public/pk/'.$this->pk->link);
 
 
             $this->pk->update([
@@ -167,7 +167,7 @@ class PerjanjianKinerja extends Component
                 'pusat' => 'required',
                 'tanggal' => 'required|date',
                 'tahun' => 'required|integer',
-                'review' => 'required|min:1|max:4|integer',
+                'review' => 'required|integer',
             ]);
 
             $this->pk->update([

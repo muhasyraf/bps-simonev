@@ -28,13 +28,15 @@ class CapaianKinerja extends Component
     public $q;
     public $sortBy = 'id';
     public $sortAsc = true;
+    public $capkinsPage = 1;
     public $cdID;
     public $editMode;
 
     protected $queryString = [
         'q' => ['except' => ''],
         'sortBy' => ['except' => 'id'],
-        'sortAsc' => ['except' => true]
+        'sortAsc' => ['except' => true],
+        'capkinsPage' => ['except' => 1],
     ];
 
     public $confirmingItemAdd = false;
@@ -51,9 +53,9 @@ class CapaianKinerja extends Component
             });
         })->orderBy($this->sortBy == 'name' ? Pusat::select('name')->whereColumn('pusats.id', 'capaian_kinerjas.pusat_id') : $this->sortBy, $this->sortAsc ? 'ASC' : 'DESC');
 
-        $pusats = DB::table('pusats')->paginate(30);
+        $pusats = Pusat::all();
         $query = $capkins->toSql();
-        $capkins = $capkins->paginate(10);
+        $capkins = $capkins->paginate(10, ['*'], 'capkinsPage');
         return view('livewire.capaian-kinerja', [
             'capkins' => $capkins,
             'pusats' => $pusats,
@@ -82,7 +84,7 @@ class CapaianKinerja extends Component
             'file' => $fileName,
         ]);
 
-        $this->resetExcept(['q', 'sortBy', 'sortAsc']);
+        $this->resetExcept(['q', 'sortBy', 'sortAsc', 'capkinsPage']);
 
         $this->alert('success', 'Sukses!', [
             'position' => 'center',
@@ -97,9 +99,8 @@ class CapaianKinerja extends Component
      }
 
     public function confirmItemAdd() {
-        $this->resetErrorBag();
         $this->resetValidation();
-        $this->resetExcept(['q', 'sortBy', 'sortAsc']);
+        $this->resetExcept(['q', 'sortBy', 'sortAsc', 'capkinsPage']);
         $this->confirmingItemAdd = true;
     }
 
@@ -111,10 +112,9 @@ class CapaianKinerja extends Component
         $this->triwulan = $this->capkin->triwulan;
         $this->oldFile = $this->capkin->file;
         $this->editMode = true;
-        $this->confirmingItemAdd = true;
-
-        $this->resetErrorBag();
         $this->resetValidation();
+        $this->reset('file');
+        $this->confirmingItemAdd = true;
     }
 
     public function confirmItemDelete($id) {
@@ -177,10 +177,8 @@ class CapaianKinerja extends Component
                 'triwulan' => $this->triwulan,
             ]);
         }
-        $this->resetErrorBag();
         $this->resetValidation();
-        $this->resetExcept(['q', 'sortBy', 'sortAsc']);
-
+        $this->resetExcept(['q', 'sortBy', 'sortAsc', 'capkinsPage']);
         $this->alert('success', 'Update Data Berhasil!', [
             'position' => 'center',
             'timer' => '4500',
