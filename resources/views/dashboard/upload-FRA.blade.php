@@ -76,7 +76,7 @@
             <img src="{{ URL('img/wallet.png') }}" alt=""  class="px-6 py-2">
             <div class="flex flex-col">
 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">3.253</h5>
+                <h5 id="avg" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">3.253</h5>
                 <p class="font-bold text-gray-700 dark:text-black"> Rata-Rata File Per Bulan</p>
             </div>
 
@@ -88,7 +88,7 @@
             <img src="{{ URL('img/wallet.png') }}" alt=""  class="px-6 py-2">
             <div class="flex flex-col">
 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">39.036</h5>
+                <h5 id="total" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">39.036</h5>
         <p class="font-bold text-gray-700 dark:text-black">Total File</p>
             </div>
     </div>
@@ -157,7 +157,7 @@
                     { label: "Juli",  y: 45  },
                     { label: "Agustus",  y: 22  },
                     { label: "September",  y: 27  },
-                    { label: "Oktober",  y: 19  },
+                    { label: "Oktober",  y: 42  },
                     { label: "November",  y: 22  },
                     { label: "Desember",  y: 18  },
                 ];
@@ -210,14 +210,12 @@
     yearData=data2020;
   }
 
-            
+  const totalY = yearData.reduce((total, data) => total + data.y, 0);
+  document.getElementById("total").innerHTML = totalY;
 
+  const avgY = totalY / yearData.length;
+  document.getElementById("avg").innerHTML = avgY;
 
-        
-
-
-        
-        
         var chart = new CanvasJS.Chart("chartContainer", {
             theme: themeType, // "light2", "dark1", "dark2"
             animationEnabled: true, // change to true		

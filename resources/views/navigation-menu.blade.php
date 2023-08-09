@@ -214,11 +214,7 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-dropdown-responsive align="none">
                 <x-slot name="trigger">
-<<<<<<< HEAD
-                    <x-responsive-nav-link >
-=======
                     <x-responsive-nav-link :active="request()->routeIs('dashboard')">
->>>>>>> e792f5bb92f17ebafb4a7cdf13bd9de35618b367
                         {{ __('Dashboard') }}
                     </x-responsive-nav-link>
                 </x-slot>

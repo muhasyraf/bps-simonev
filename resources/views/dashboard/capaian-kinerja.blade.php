@@ -7,7 +7,7 @@
     <div class="pt-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-xl sm:rounded-lg">
-                <div class="flex justify-between">
+                <div class="md:flex md:justify-between">
                     <div class="md:flex md:justify-between">
 
                     <h1 class="text-black items-center justify-center text-4xl font-extrabold m-5">
@@ -47,7 +47,7 @@
                     <h1 class="text-black items-center justify-center text-4xl font-extrabold m-5">
                         Capaian Kinerja BPS Pusat Per Triwulan Tahun 2022
                     </h1>
-                    <livewire:capkin-import />
+                    
                 </div>
                 <div class="p-2 flex  flex-col md:flex-row">
                     <div class="flex flex-col p-5">
@@ -56,13 +56,7 @@
                             view</label>
                         <select id="chart" onchange="window.onload()"
                             class="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  w-full md:w-40 p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="column">Column</option>
-                            <option value="bar">bar</option>
-                            <option value="line">line</option>
-
-                            <option value="area">area</option>
-
-                            <option value="scatter">scatter</option>
+                            
                         </select>
                     </div>
 
@@ -173,14 +167,14 @@
                        { label: "TW1", y: 33 },
                        { label: "TW2", y: 42 },
                        { label: "TW3", y: 32 },
-                       { label: "TW4", y: 22 },
+                       { label: "TW4", y: 34 },
                        
                    ];
                var dataRealisasi2020 = [
                        { label: "TW1", y: 43 },
                        { label: "TW2", y: 28 },
-                       { label: "TW3", y: 32 },
-                       { label: "TW4", y: 23 },
+                       { label: "TW3", y: 42 },
+                       { label: "TW4", y: 36 },
                        
                    ];
                
@@ -261,5 +255,6 @@
         }
         
         }
+        
         </script>
     </div>
