@@ -13,7 +13,7 @@
                     <h1 class="text-black items-center justify-center text-4xl font-extrabold m-5">
                             Capaian Kinerja BPS Pusat Per Triwulan Tahun 2022
                         </h1>
-                    <livewire:capkin-import />
+                    
                 </div>
                     <div class="flex flex-col p-5">
                 
@@ -93,8 +93,12 @@
             <img src="{{ URL('img/wallet.png') }}" alt="" class="px-6 py-2">
             <div class="flex flex-col">
 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Rp 5.345.234.542</h5>
-                <p class="font-bold text-gray-700 dark:text-black">Pagu</p>
+                <div class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex flex-row">
+
+                    <h5 id="avg2" ></h5>
+                    <h5>%</h5>
+                </div>
+                <p class="font-bold text-gray-700 dark:text-black">Rata-Rata Capaian Kinerja/Tahun</p>
             </div>
 
 
@@ -105,9 +109,13 @@
         <div class="flex flex-row">
             <img src="{{ URL('img/wallet.png') }}" alt="" class="px-6 py-2">
             <div class="flex flex-col">
+                <div class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex flex-row">
 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Rp 3.543.212.543</h5>
-                <p class="font-bold text-gray-700 dark:text-black">Realisasi</p>
+                    <h5 id="avg" ></h5>
+                    <h5>%</h5>
+                </div>
+
+                <p class="font-bold text-gray-700 dark:text-black">Rata-Rata Realisasi Anggaran/Tahun</p>
             </div>
         </div>
 
@@ -179,6 +187,8 @@
                    ];
                
                var yearDataRealisasi;
+               
+
 
             if (selectedYear === '2021') {
     yearDataCapaian = dataCapaian2021;
@@ -200,6 +210,13 @@
 
 
           
+  const totalY = yearDataRealisasi.reduce((total, data) => total + data.y, 0);
+               const avgY = totalY / yearDataRealisasi.length;
+               document.getElementById("avg").innerText = avgY;
+
+               const totalCapaian = yearDataCapaian.reduce((total, data) => total + data.y, 0);
+               const avgY2 = totalCapaian / yearDataCapaian.length;
+               document.getElementById("avg2").innerText = avgY2;
 
 
         
