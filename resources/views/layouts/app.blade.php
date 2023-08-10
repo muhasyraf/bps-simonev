@@ -49,10 +49,13 @@
 <script>
     function showChangeFile() {
         var x = document.getElementById("changeFile");
+        var y = document.getElementById('changeButtonText');
             if (x.style.display === "grid") {
                 x.style.display = "none";
+                y.innerText = "Change"
         }  else {
                 x.style.display = "grid";
+                y.innerText = "Cancel"
   }
 }
 </script>

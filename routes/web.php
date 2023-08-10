@@ -30,18 +30,13 @@ Route::middleware([
     Route::get('/admin/dashboard', function () {
         return view('dashboard.index');
     })->name('dashboard')->middleware('auth:admin');
-    Route::get('/dashboard/capaian-kinerja', function () {
-        return view('dashboard.capaian-kinerja');
-    })->name('dashboard.capaian-kinerja');
+    Route::get('/dashboard/capaian-kinerja', 'CapkinController@index')->name('dashboard.capaian-kinerja');
     Route::get('/dashboard/PK', function () {
         return view('dashboard.PK');
     })->name('dashboard.PK');
     Route::get('/dashboard/upload-FRA', function () {
         return view('dashboard.upload-FRA');
     })->name('dashboard.upload-FRA');
-    Route::get('/dashboard/capaian-kinerja', function () {
-        return view('dashboard.capaian-kinerja');
-    })->name('dashboard.capaian-kinerja');
     Route::get('/entry/PK', function () {
         return view('entry.PK');
     })->name('entry.PK');
@@ -59,18 +54,13 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard.index');
     })->name('dashboard');
-    Route::get('/dashboard/capaian-kinerja', function () {
-        return view('dashboard.capaian-kinerja');
-    })->name('dashboard.capaian-kinerja');
+    Route::get('/dashboard/capaian-kinerja', 'CapkinController@index')->name('dashboard.capaian-kinerja');
     Route::get('/dashboard/PK', function () {
         return view('dashboard.PK');
     })->name('dashboard.PK');
     Route::get('/dashboard/upload-FRA', function () {
         return view('dashboard.upload-FRA');
     })->name('dashboard.upload-FRA');
-    Route::get('/dashboard/capaian-kinerja', function () {
-        return view('dashboard.capaian-kinerja');
-    })->name('dashboard.capaian-kinerja');
     Route::get('/entry/PK', function () {
         return view('entry.PK');
     })->name('entry.PK');

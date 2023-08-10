@@ -40,10 +40,6 @@ class CapkinImport extends Component
 
         Storage::putFileAs('public/fileimport/', $this->file, $fileName);
 
-        Capkin::create([
-            'file' => $fileName,
-        ]);
-
         Excel::import(new TheCapkinImport, $this->file);
         
         $this->reset();

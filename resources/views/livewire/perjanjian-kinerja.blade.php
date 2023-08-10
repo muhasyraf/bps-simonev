@@ -187,7 +187,8 @@
                             </a>
                             <button type="button" onclick="showChangeFile()" id="changeFileButton">
                                 <span
-                                    class="bg-orange-100 text-orange-800 text-xs font-medium ml-2 px-1 py-0.5 rounded dark:bg-gray-700 dark:text-orange-400 border border-orange-400">
+                                    class="bg-orange-100 text-orange-800 text-xs font-medium ml-2 px-1 py-0.5 rounded dark:bg-gray-700 dark:text-orange-400 border border-orange-400"
+                                    id="changeButtonText">
                                     Change</span>
                             </button>
                         </div>
