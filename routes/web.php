@@ -26,6 +26,15 @@ Route::get('/terms', function () {
 Route::get('/about', function () {
     return view('about');
 });
+Route::get('/policy', function () {
+    return view('policy');
+});
+Route::get('/terms', function () {
+    return view('terms');
+});
+Route::get('/about', function () {
+    return view('about');
+});
 
 Route::middleware(['admin:admin'])->group(function () {
     Route::get('admin/login', 'AdminController@loginForm');
