@@ -30,31 +30,31 @@
             Badan Pusat Statistik
         </a>
         @if (Route::has('login'))
-        <div class="flex items-center justify-end">
-            @auth
-            <a href="{{ url('/dashboard') }}" class="mx-2">
-                <x-button
-                    class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent">
-                    Dashboard
-                </x-button>
-            </a>
-            @else
-            <a href="{{ route('login') }}" class="text-white" class="mx-2">
-                <x-button
-                    class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent">
-                    Log in
-                </x-button>
-            </a>
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="mx-2">
-                <x-button
-                    class="border-2 border-collapse bg-green-400 text-white hover:bg-transparent hover:text-green-500 hover:border-green-500 focus:ring-2 focus:ring-green-200 focus:bg-transparent focus:text-green-500 active:bg-transparent">
-                    Register
-                </x-button>
-            </a>
-            @endif
-            @endauth
-        </div>
+            <div class="flex items-center justify-end">
+                @auth
+                    <a href="{{ url('/dashboard/PK') }}" class="mx-2">
+                        <x-button
+                            class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent">
+                            Dashboard
+                        </x-button>
+                    </a>
+                @else
+                    <a href="{{ route('login') }}" class="text-white" class="mx-2">
+                        <x-button
+                            class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent">
+                            Log in
+                        </x-button>
+                    </a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="mx-2">
+                            <x-button
+                                class="border-2 border-collapse bg-green-400 text-white hover:bg-transparent hover:text-green-500 hover:border-green-500 focus:ring-2 focus:ring-green-200 focus:bg-transparent focus:text-green-500 active:bg-transparent">
+                                Register
+                            </x-button>
+                        </a>
+                    @endif
+                @endauth
+            </div>
         @endif
     </div>
     <div class="w-full mx-auto">
@@ -73,27 +73,23 @@
                     kegiatan. </p>
 
                 @if (Route::has('login'))
+                    @auth
 
-                @auth
+                        <a href="{{ url('/dashboard/PK') }}">
+                            <x-button
+                                class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent mx-10 w-36 h-12 rounded-md">
+                                Dashboard
+                            </x-button>
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}">
+                            <x-button
+                                class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent mx-10 w-36 h-12 rounded-md">
+                                Login
+                            </x-button>
+                        </a>
 
-                <a href="{{ url('/dashboard') }}">
-                    <x-button
-                        class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent mx-10 w-36 h-12 rounded-md">
-                        Dashboard
-                    </x-button>
-                </a>
-
-
-                @else
-                <a href="{{ route('login') }}">
-                    <x-button
-                        class="border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent mx-10 w-36 h-12 rounded-md">
-                        Login
-                    </x-button>
-                </a>
-
-                @endauth
-
+                    @endauth
                 @endif
                 </a>
 

@@ -15,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('landingPage');
+
+Route::get('/policy', function () {
+    return view('policy');
+});
+Route::get('/terms', function () {
+    return view('terms');
+});
+Route::get('/about', function () {
+    return view('about');
 });
 
 Route::middleware(['admin:admin'])->group(function () {
@@ -51,9 +61,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard.index');
-    })->name('dashboard');
     Route::get('/dashboard/capaian-kinerja', 'CapkinController@index')->name('dashboard.capaian-kinerja');
     Route::get('/dashboard/PK', function () {
         return view('dashboard.PK');
