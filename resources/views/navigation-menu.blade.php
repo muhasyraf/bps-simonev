@@ -64,7 +64,6 @@
                             {{-- </span> --}}
                         </x-slot>
                         <x-slot name="content">
-                            <!-- Account Management -->
                             <x-dropdown-link href="{{ route('entry.PK') }}" :active="request()->routeIs('entry.PK')">
                                 {{ __('PK') }}
                             </x-dropdown-link>
@@ -74,6 +73,13 @@
                         </x-slot>
                     </x-dropdown>
                 </div>
+                @can('admin-action')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('user-management.index') }}" :active="request()->routeIs('user-management.index')">
+                            {{ __('User Management') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

@@ -83,4 +83,5 @@ Route::middleware([
     Route::get('/entry/upload-FRA', function () {
         return view('entry.upload-FRA');
     })->name('entry.upload-FRA');
+    Route::get('/user-management', 'UserManagementController@index')->name('user-management.index');
 });

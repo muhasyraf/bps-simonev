@@ -1,28 +1,28 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 mt-16 bg-white', 'dropdownClasses' => ''])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 absolute bg-white', 'dropdownClasses' => ''])
 
 @php
-switch ($align) {
-case 'left':
-$alignmentClasses = 'origin-top-left left-0';
-break;
-case 'top':
-$alignmentClasses = 'origin-top';
-break;
-case 'none':
-case 'false':
-$alignmentClasses = '';
-break;
-case 'right':
-default:
-$alignmentClasses = 'origin-top-right right-0';
-break;
-}
-
-switch ($width) {
-case '48':
-$width = 'w-48';
-break;
-}
+    switch ($align) {
+        case 'left':
+            $alignmentClasses = 'origin-top-left left-0';
+            break;
+        case 'top':
+            $alignmentClasses = 'origin-top';
+            break;
+        case 'none':
+        case 'false':
+            $alignmentClasses = '';
+            break;
+        case 'right':
+        default:
+            $alignmentClasses = 'origin-top-right right-0';
+            break;
+    }
+    
+    switch ($width) {
+        case '48':
+            $width = 'w-48';
+            break;
+    }
 @endphp
 
 <div class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-black hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"
