@@ -32,5 +32,16 @@
                 @endif
             </div>
         </section>
+        <footer class="bg-white rounded-lg flex md:hidden  mt-56 mx-5 dark:bg-gray-800">
+            <div class="w-full mx-auto max-w-full p-6 flex lg:items-center justify-between">
+                <span class="text-xs md:text-sm text-black  dark:text-gray-400">© 2023 <a href="./"
+                        class="hover:underline">Badan Pusat Statistik.</a>
+                </span>
+
+                <p class="text-xs md:text-sm text-black  dark:text-gray-400"> All Rights Reserved.</p>
+
+            </div>
+        </footer>
+
     </div>
 @endsection

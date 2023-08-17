@@ -160,7 +160,7 @@
                         <x-label for="tahun" value="{{__('Tahun')}}" class="flex items-center col-span-1" />
                         <select name="tahun" class="flex items-center col-span-2" wire:model="tahun">
                             <option value="null" disabled selected>Pilih Tahun</option>
-                            @for ($i=2023; $i>=2013; $i--)
+                            @for ($i=2017; $i<=2023; $i++)
                             <option value="{{$i}}">{{$i}}</option>
                             @endfor
                         </select>
