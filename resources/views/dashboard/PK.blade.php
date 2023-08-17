@@ -4,7 +4,7 @@
             {{ __('Dashboard >> PK') }}
     </x-slot>
     <div class="pt-4">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl max-h-full mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-2 flex flex-col md:flex-row justify-between">
                     <div class="flex fle-col p-5">
@@ -25,6 +25,8 @@
                                 <option value="line">line</option>
                                 <option value="area">area</option>
                                 <option value="scatter">scatter</option>
+                                <option value="doughnut">doughnut</option>
+                                <option value="pyramid">pyramid</option>
                             </select>
                         </div>
                         <div class="flex flex-col p-5">
@@ -47,11 +49,9 @@
                             <select id="yearSelect" onchange="window.onload()"
                                 class="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected value=2023>Tahun 2023</option>
-                                <option value="2022">Tahun 2022</option>
-                                <option value="2021">Tahun 2021</option>
-                                <option value="2020">Tahun 2020</option>
-                                <option value="2019">Tahun 2019</option>
-                                <option value="2018">Tahun 2018</option>
+                                @for ($i=2022; $i>=2018; $i--)
+                                <option value="{{$i}}">Tahun {{$i}}</option>
+                                @endfor
                             </select>
                         </div>
                     </div>
@@ -64,26 +64,27 @@
         </div>
     </div>
 </x-app-layout>
-<div class="bg-gray-100 flex flex-col md:flex-row justify-between p-5 sm:px-6 lg:px-8">
-    <div
-        class="flex flex-row justify-center block cursor-pointer p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700 my-5 w-1/3">
-        <img src="{{ URL('img/wallet.png') }}" alt="" class="px-6 py-2">
-        <div class="flex flex-col">
-            <div class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex flex-row">
-                <h5 id="avg"></h5>
+<div class="bg-gray-100 flex flex-col md:flex-row my-0 ">
+    <div href="#" class="block cursor-pointer mx-10 md:mx-32 lg:w-full lg:mx-36 my-5 lg:my-7 max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700">
+        <div class="flex flex-row">
+            <img src="{{ URL('img/wallet.png') }}" alt=""  class="px-6 py-2">
+            <div class="flex flex-col">
+
+                <h5 id="avg" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">3.253</h5>
+                <p class="font-bold text-gray-700 dark:text-black"> Rata-Rata File Per Bulan</p>
             </div>
-            <p class="font-bold text-gray-700 dark:text-black">Rata-Rata File/Bulan</p>
+
+            
         </div>
     </div>
-    <div
-        class="flex flex-row justify-center block cursor-pointer p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700 my-5 w-1/3">
-        <img src="{{ URL('img/wallet.png') }}" alt="" class="px-6 py-2">
-        <div class="flex flex-col">
-            <div class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex flex-row">
-                <h5 id="total"></h5>
+    <div href="#" class="block cursor-pointer mx-10 max-w-full lg:w-full p-6 md:mx-32 lg:mx-36 my-5 lg:my-7 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700">
+        <div class="flex flex-row">
+            <img src="{{ URL('img/wallet.png') }}" alt=""  class="px-6 py-2">
+            <div class="flex flex-col">
+
+                <h5 id="total" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">39.036</h5>
+        <p class="font-bold text-gray-700 dark:text-black">Total File</p>
             </div>
-            <p class="font-bold text-gray-700 dark:text-black">Total FIle</p>
-        </div>
     </div>
 </div>
 <script>
@@ -399,13 +400,10 @@
 
         if (selectedYear === '2021') {
             yearData = data2021;
-
         } else if (selectedYear === '2022') {
             yearData = data2022;
-
         } else if (selectedYear === '2023') {
             yearData = data2023;
-
         } else if (selectedYear === '2019') {
             yearData = data2019;
         } else if (selectedYear === '2018') {
@@ -413,13 +411,11 @@
         } else if (selectedYear === '2020') {
             yearData = data2020;
         }
-
         const totalY = yearData.reduce((total, data) => total + data.y, 0);
         document.getElementById("total").innerText = totalY;
-
         const avgY = totalY / yearData.length;
         document.getElementById("avg").innerText = avgY.toFixed(2);
-
+        
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             exportEnabled: true,
