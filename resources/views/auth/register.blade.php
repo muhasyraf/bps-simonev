@@ -1,6 +1,5 @@
 <x-guest-layout>
     <x-authentication-card>
-
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="py-2">
@@ -53,21 +52,21 @@
                                             '<a target="_blank" href="' .
                                             route('terms.show') .
                                             '"
-                                                                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+                                                                                                                                                                                class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
                                             __('Terms of Service') .
                                             '</a>',
                                         'privacy_policy' =>
                                             '<a target="_blank" href="' .
                                             route('policy.show') .
                                             '"
-                                                                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+                                                                                                                                                                                class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
                                             __('Privacy Policy') .
                                             '</a>',
                                     ]) !!}
                                 </div>
                             </div>
                         </x-label>
-                        <div class="py-2 justify-center">
+                        <div class="pt-2 pb-1 justify-center">
                             <x-button
                                 class="w-full text-white bg-sky-500 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                 {{ __('Register') }}
@@ -76,7 +75,7 @@
                     </div>
                 @endif
 
-                <div class="flex items-center justify-center mt-2">
+                <div class="flex items-center justify-center mt-1">
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         href="{{ route('login') }}">
                         {{ __('Already registered?') }}

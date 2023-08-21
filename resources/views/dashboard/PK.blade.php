@@ -1,7 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <h4 class="font-semibold text-xl text-gray-800 leading-tight justify-between">
-            {{ __('Dashboard >> PK') }}
+        <div class="px-2 flex flex-row justify-start items-center font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+            <svg class="w-5 h-5 mx-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 12 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+            </svg>
+            {{ __('PK') }}
+        </div>
     </x-slot>
     <div class="pt-4">
         <div class="max-w-7xl max-h-full mx-auto sm:px-6 lg:px-8">
@@ -49,8 +56,8 @@
                             <select id="yearSelect" onchange="window.onload()"
                                 class="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected value=2023>Tahun 2023</option>
-                                @for ($i=2022; $i>=2018; $i--)
-                                <option value="{{$i}}">Tahun {{$i}}</option>
+                                @for ($i = 2022; $i >= 2018; $i--)
+                                    <option value="{{ $i }}">Tahun {{ $i }}</option>
                                 @endfor
                             </select>
                         </div>
@@ -64,27 +71,26 @@
         </div>
     </div>
 </x-app-layout>
-<div class="bg-gray-100 flex flex-col md:flex-row my-0 ">
-    <div href="#" class="block cursor-pointer mx-10 md:mx-32 lg:w-full lg:mx-36 my-5 lg:my-7 max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700">
-        <div class="flex flex-row">
-            <img src="{{ URL('img/wallet.png') }}" alt=""  class="px-6 py-2">
-            <div class="flex flex-col">
-
-                <h5 id="avg" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">3.253</h5>
-                <p class="font-bold text-gray-700 dark:text-black"> Rata-Rata File Per Bulan</p>
+<div class="bg-gray-100 flex flex-col md:flex-row justify-between items-center p-5 sm:px-6 lg:px-8 w-full">
+    <div
+        class="flex flex-row justify-center block cursor-pointer p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700 my-5 w-full md:w-1/3">
+        <img src="{{ URL('img/wallet.png') }}" alt="" class="px-6 py-2">
+        <div class="flex flex-col">
+            <div class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex flex-row">
+                <h5 id="avg"></h5>
             </div>
-
-            
+            <p class="font-bold text-gray-700 dark:text-black">Rata-Rata File/Bulan</p>
         </div>
     </div>
-    <div href="#" class="block cursor-pointer mx-10 max-w-full lg:w-full p-6 md:mx-32 lg:mx-36 my-5 lg:my-7 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700">
-        <div class="flex flex-row">
-            <img src="{{ URL('img/wallet.png') }}" alt=""  class="px-6 py-2">
-            <div class="flex flex-col">
-
-                <h5 id="total" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">39.036</h5>
-        <p class="font-bold text-gray-700 dark:text-black">Total File</p>
+    <div
+        class="flex flex-row justify-center block cursor-pointer p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-sky-500 dark:border-gray-700 dark:hover:bg-sky-700 my-5 w-full md:w-1/3">
+        <img src="{{ URL('img/wallet.png') }}" alt="" class="px-6 py-2">
+        <div class="flex flex-col">
+            <div class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex flex-row">
+                <h5 id="total"></h5>
             </div>
+            <p class="font-bold text-gray-700 dark:text-black">Total FIle</p>
+        </div>
     </div>
 </div>
 <script>
@@ -415,7 +421,7 @@
         document.getElementById("total").innerText = totalY;
         const avgY = totalY / yearData.length;
         document.getElementById("avg").innerText = avgY.toFixed(2);
-        
+
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             exportEnabled: true,

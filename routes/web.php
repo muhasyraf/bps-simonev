@@ -46,9 +46,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('dashboard.index');
-    })->name('dashboard')->middleware('auth:admin');
+    // Route::get('/admin/dashboard', function () {
+    //     return view('dashboard.index');
+    // })->name('dashboard')->middleware('auth:admin');
     Route::get('/dashboard/capaian-kinerja', 'CapkinController@index')->name('dashboard.capaian-kinerja');
     Route::get('/dashboard/PK', function () {
         return view('dashboard.PK');
@@ -62,6 +62,7 @@ Route::middleware([
     Route::get('/entry/upload-FRA', function () {
         return view('entry.upload-FRA');
     })->name('entry.upload-FRA');
+    Route::get('/user-management', 'UserManagementController@index')->name('user-management.index');
 });
 
 

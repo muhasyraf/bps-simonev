@@ -20,13 +20,12 @@
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js" defer></script>
-    <script src="https://cdn.canvasjs.com/canvasjs.min.js" defer></script>
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-center bg-cover">
-    <a href="#" class="flex text-xl text-gray-900 dark:text-black py-8 px-6">
+    <a href="#" class="flex text-xl text-gray-900 dark:text-black font-semibold pt-6 pb-1 px-6">
         <img class="w-10 h-8 mr-2" src="{{ URL('img/logo BPS.png') }}" alt="logo">
         Badan Pusat Statistik
     </a>
