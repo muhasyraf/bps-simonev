@@ -21,8 +21,7 @@
 </head>
 
 <body class="antialiased bg-center bg-cover ">
-    <div class="p-2 flex flex-col  md:flex-row justify-center md:justify-between">
-
+    <div class="pt-2 flex flex-col  md:flex-row justify-center md:justify-between">
         <a href="./" class="flex text-xl text-gray-900 dark:text-black font-bold py-6 px-6">
             <img class="w-10 h-8 mr-2" src="{{ URL('img/logo BPS.png') }}" alt="logo">
             Badan Pusat Statistik
@@ -32,7 +31,7 @@
         </a>
         <div class="relative justify-center hidden md:flex flex-col md:flex-row font-bold " id="nav">
             <a href="./about" class="m-6">About</a>
-            <a href="./policy" class="m-6">Information</a>
+            <a href="./information" class="m-6">Information</a>
             <a href="./terms" class="m-6">Terms</a>
         </div>
     </div>

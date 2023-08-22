@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <div class="max-w-full mx-auto">
+    <div class="max-w-full pt-5 mx-auto">
         <section class="flex flex-col md:flex-row  " style="scroll-behavior: smooth">
             <div class=" hidden lg:flex md:w-full xl:w-1/2 rounded-lg bg-white overflow-hidden ">
                 <img src="{{ URL('img/welcome.png') }}" alt="" class="   w-full h-full rounded-xl  ">
@@ -16,14 +16,14 @@
                     @auth
                         <a href="{{ url('/dashboard/PK') }}" class="mx-10 ">
                             <x-button type="button"
-                                class="px-5 py-3 text-base font-medium text-center border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent w-1/3">
+                                class="px-5 py-3 text-base font-medium text-center border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent w-1/4">
                                 Dashboard
                             </x-button>
                         </a>
                     @else
                         <a href="{{ route('login') }}" class="mx-10">
                             <x-button type="button"
-                                class="px-5 py-3 text-base font-medium text-center border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent w-1/3">
+                                class="px-5 py-3 text-base font-medium text-center border-2 border-collapse bg-blue-400 text-white hover:bg-transparent hover:text-blue-500 hover:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:bg-transparent focus:text-blue-500 active:bg-transparent w-1/4">
                                 Login
                             </x-button>
                         </a>

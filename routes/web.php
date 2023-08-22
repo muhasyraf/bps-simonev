@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('landingPage');
 
-Route::get('/policy', function () {
-    return view('policy');
+Route::get('/information', function () {
+    return view('information');
 });
 Route::get('/terms', function () {
     return view('terms');
